@@ -32,7 +32,7 @@ gc portsweep.*.txt | select-string True
 
 A simple SMB login attack tool for Active Directory. It takes list of usernames and a password and tries to login with it against specified AD domain.
 
-It retains results in a file in the current working directory, so it can be interrupted and resumed (it will not try to login again if the given user has already been compromised or tried with the given password)
+It retains results in a file in the current working directory, so it can be interrupted and resumed (it will not try to login again if the given user has already been compromised or tried with the given password).
 
 ```
 Import-Module .\smblogin.ps1
