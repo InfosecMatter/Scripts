@@ -11,7 +11,7 @@ Function portsweep {
   foreach($line in Get-Content $list) {
     $x = (gc $results -EA SilentlyContinue | select-string "^$line,$port,")
     if ($x) {
-	  gc $results | select-string "^$line,$port,"
+      gc $results | select-string "^$line,$port,"
       continue
     }
     $output = "$line,$port,"
