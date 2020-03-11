@@ -8,8 +8,8 @@ Function smblogin {
 
   if (!$pwd) {
     Write-Host "usage: smblogin <userlist.txt> <domain> <password>"
-	Write-Host " e.g.: smblogin users.txt domain.com P@ssw0rd`n"
-	return
+    Write-Host " e.g.: smblogin users.txt domain.com P@ssw0rd`n"
+    return
   }
   $results = ".\smblogin.$pwd.txt"
 
