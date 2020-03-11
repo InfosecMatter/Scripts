@@ -3,8 +3,8 @@ Function portsweep {
 
   if (!$port) {
     Write-Host "usage: portsweep <list.txt> <port>"
-	Write-Host " e.g.: portsweep ips.txt 445`n"
-	return
+    Write-Host " e.g.: portsweep ips.txt 445`n"
+    return
   }
   $results = ".\portsweep.$port.txt"
    
