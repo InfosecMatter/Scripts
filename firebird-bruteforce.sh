@@ -1,5 +1,5 @@
 #!/bin/bash
-# info@infosecmatter.com
+# contact@infosecmatter.com
 
 host="$1"
 user="$2"
